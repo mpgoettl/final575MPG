@@ -3,7 +3,7 @@
 (function(){
 
 //pseudo-global variables
-var attrArray = ["Overall Accountability Score","District Enrollment","Percent American Indian or Alaskan Native","Percent Asian","Percent Black or African American","Percent Hispanic/Latino","Percent Native Hawaiian or Other Pacific Islander","Percent White","Percent Two or More Races","Percent Students with Disabilities","Percent Economically Disadvantaged","Percent Limited English Proficient","Percent School Choice Program","Percent Open Enrollment"]; 
+var attrArray = ["Overall Accountability Score","Overall Accountability Rating","School Enrollment","Percent American Indian or Alaskan Native","Percent Asian	Percent Black or African American","Percent Hispanic/Latino","Percent Native Hawaiian or Other Pacific Islander","Percent White","Percent Two or More Races","Percent Students with Disabilities","Percent Economically Disadvantaged","Percent Limited English Proficient","Percent Open Enrollment"]; 
 var expressed = attrArray[0]; //initial attribute
 
 //chart frame dimensions
@@ -53,9 +53,9 @@ function setMap(){
 
     //use Promise.all to parallelize asynchronous data loading
     var promises = [];
-    promises.push(d3.csv("data/reportcardDIS.csv")); //load attributes from csv
+    promises.push(d3.csv("data/reportcardMS.csv")); //load attributes from csv
     promises.push(d3.json("data/background.topojson")); //load background spatial data
-    promises.push(d3.json("data/dBound.topojson")); //load choropleth spatial data
+    promises.push(d3.json("data/msBound.topojson")); //load choropleth spatial data
     Promise.all(promises).then(callback);
 
     function callback(data){
@@ -69,7 +69,7 @@ function setMap(){
 
         //translate states TopoJSON
         var UScountries = topojson.feature(usCountries, usCountries.objects.background),
-            usSTATES = topojson.feature(USA, USA.objects.dBound).features;
+            usSTATES = topojson.feature(USA, USA.objects.msBound).features;
 
         //add NA countries to map
         var NAcountries = map.append("path")
@@ -150,8 +150,9 @@ function joinData(usSTATES, csvData){
 //Natural Breaks color scale
 function makeColorScale(data){
     var colorClasses = [
-        //"#fb0805",	// red
-        "#fb9d05",	// orange	
+        "#fb0805",	// red
+		"#fb0805",	// red	
+		"#fb9d05",	// orange		
 		//"#f1fb05",	// yellow		
 		//"#05fb16",	// green		
 		//"#0528fb",	// blue		
@@ -170,7 +171,7 @@ function makeColorScale(data){
     };
 
     //cluster data using ckmeans clustering algorithm to create natural breaks
-    var clusters = ss.ckmeans(domainArray, 1);
+    var clusters = ss.ckmeans(domainArray, 3);
     //reset domain array to cluster minimums
     domainArray = clusters.map(function(d){
         return d3.min(d);
