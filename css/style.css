@@ -105,6 +105,15 @@ h4 {
 	font-size: 20px;
 }
 
+
+
+.leaflet-popup-content {
+	background-color: white;
+	box-shadow: 0 0 15px rgba(0,0,0,0.9);
+	padding: 10px;
+	border-radius: 12px;
+	text-align: center;
+}
 position: relative;
 	left: 10%;
 	border: 1px solid #999;
@@ -117,17 +126,9 @@ position: relative;
     height: 100%;
 	margin: auto;
 }
-
-.leaflet-popup-content {
-	background-color: white;
-	box-shadow: 0 0 15px rgba(0,0,0,0.9);
-	padding: 10px;
-	border-radius: 12px;
-	text-align: center;
-}
-
 .map {
 	position: relative;
+	
 	
 	
 }
@@ -192,6 +193,14 @@ option {
 	padding: 0;
 	display: inline-block;
 	line-height: 1em;
+}
+
+.leaflet-popup-content {
+	background-color: white;
+	box-shadow: 0 0 15px rgba(0,0,0,0.9);
+	padding: 10px;
+	border-radius: 12px;
+	text-align: center;
 }
 
 
