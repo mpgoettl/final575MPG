@@ -3,7 +3,7 @@
 (function(){
 
 //pseudo-global variables
-var attrArray = ["Overall Accountability Score","District Enrollment","Percent American Indian or Alaskan Native","Percent Asian","Percent Black or African American","Percent Hispanic/Latino","Percent Native Hawaiian or Other Pacific Islander","Percent White","Percent Two or More Races","Percent Students with Disabilities","Percent Economically Disadvantaged","Percent Limited English Proficient","Percent School Choice Program","Percent Open Enrollment"]; 
+var attrArray = ["Overall Accountability Score","District Enrollment","Percent American Indian or Alaskan Native","Percent Asian","Percent Black or African American","Percent Hispanic/Latino","Percent Native Hawaiian or Other Pacific Islander","Percent White","Percent Two or More Races","Percent Students with Disabilities","Percent Economically Disadvantaged","Percent Limited English Proficient","Percent Open Enrollment"]; 
 var expressed = attrArray[0]; //initial attribute
 
 //chart frame dimensions
