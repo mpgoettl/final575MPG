@@ -203,7 +203,9 @@ option {
 	text-align: center;
 }
 
-
+.tab {
+  padding-left: 2px;
+}
 
 
 
